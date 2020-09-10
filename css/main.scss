@@ -1,0 +1,55 @@
+body {
+    background: rgb(193, 196, 199);
+    font-family:  "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: 20px;
+  }
+  
+  .container
+  {
+      width: auto;
+      height: auto;  
+      margin-right: 3vw;
+      margin-left: 3vw;
+      background-color: rgb(193, 196, 199);    
+  }
+  
+  .cabecalho {
+    background-color: #627A14;
+    padding: 1vh 1vw;
+    height: 10vh;
+    box-sizing: border-box;
+    color: #fff;
+    justify-content: center;
+   }
+  
+   .footer {
+    height: 5vh;
+    background-color: #B3CB65;
+    text-align: center;
+    font-size: 20px;
+   }
+  
+  
+  .info {
+    display: flex;
+    background-color: #fbfbfb;
+    font-size: 30px;
+    justify-content: center;
+    padding: 12px;
+   }
+  
+   .info__cidade{
+     display: block;
+  
+   }
+   .info__temp{
+    display: block;
+  
+  }
+  
+   a:hover, a:active {
+    background-color: #4CAF50;
+  }
+  
+@import "_searchForm.scss";
+@import "_responsive.scss";

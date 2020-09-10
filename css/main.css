@@ -1,34 +1,127 @@
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  color: #222;
- }
- body > header {
+  background: #c1c4c7;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  font-size: 20px;
+}
+
+.container {
+  width: auto;
+  height: auto;
+  margin-right: 3vw;
+  margin-left: 3vw;
+  background-color: #c1c4c7;
+}
+
+.cabecalho {
   background-color: #627A14;
   padding: 1vh 1vw;
   height: 10vh;
   box-sizing: border-box;
   color: #fff;
- }
- body > main {
-  height: 85vh;
- }
- body > footer {
+  justify-content: center;
+}
+
+.footer {
   height: 5vh;
   background-color: #B3CB65;
- }
- h1.app-title {
+  text-align: center;
   font-size: 20px;
- }
- section.main-feature {
-  float: left;
+}
+
+.info {
+  display: flex;
   background-color: #fbfbfb;
-  width: 80vw;
-  height: 85vh;
- }
- aside.secundary-feature {
-  float: right;
-  background-color: #6F4D8F;
-  width: 20vw;
-  height: 85vh;
-  color: #fff;
- }
+  font-size: 30px;
+  justify-content: center;
+  padding: 12px;
+}
+
+.info__cidade {
+  display: block;
+}
+
+.info__temp {
+  display: block;
+}
+
+a:hover, a:active {
+  background-color: #4CAF50;
+}
+
+.buscaCidade {
+  display: flex;
+  justify-content: center;
+  background-color: #c1c4c7;
+}
+
+.buscaCidade__Buscar {
+  background-color: white;
+  color: black;
+  border: 2px solid #4CAF50;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 35px;
+  margin-left: 2px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.buscaCidade__Cidade {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  display: inline-block;
+  font-size: 35px;
+}
+
+.buscaCidade__Estado {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  display: inline-block;
+  font-size: 35px;
+}
+
+@media (min-width: 992px) {
+  .buscaCidade__Cidade {
+    width: 500px;
+  }
+
+  .buscaCidade__Estado {
+    width: 250px;
+  }
+
+  .buscaCidade__Buscar {
+    width: auto;
+  }
+
+  .info {
+    font-size: 18px;
+  }
+
+  body {
+    font-size: 13px;
+  }
+
+  .footer {
+    font-size: 10px;
+  }
+
+  .buscaCidade__Cidade {
+    font-size: 18px;
+  }
+
+  .buscaCidade__Estado {
+    font-size: 18px;
+  }
+
+  .buscaCidade__Buscar {
+    font-size: 18px;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */

@@ -4,55 +4,40 @@
 <head>
   <meta charset="utf-8">
   <title>Projeto Front-end - API Geolocalização</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <meta property="og:title" content="">
-  <meta property="og:type" content="">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="">
-
-  <link rel="manifest" href="site.webmanifest">
-  <link rel="apple-touch-icon" href="icon.png">
-  <!-- Place favicon.ico in the root directory -->
-
-  <link rel="stylesheet" href="css/normalize.css">
+  <!-- css customizado -->
   <link rel="stylesheet" href="css/main.css">
 
-  <meta name="theme-color" content="#fafafa">
+
 </head>
 
 <body>
+  <div class="container">
+    <header class="cabecalho" align="center">
+      <h1 class="cabecalho__tilulo">Pesquisa Clima</h1>
+    </header>
 
-  <!-- Add your site or application content here -->
-  <script src="js/vendor/modernizr-3.11.2.min.js"></script>
-  <script src="js/plugins.js"></script>
-  <script src="js/main.js"></script>
-
-  <header>
-    <h1 class="app-title">Clima na sua localização</h1>
-    
-  </header>
-
-
-
-  <main>
-    <section class="main-feature">
-      <h1 id="cidade"></h1>
-      <h2><span id="temp">0</span>ºC</h2>
-    </section>
-  </main>
-  <footer >
-    Desenvolvido por Denis P. de Paula
-  </footer>
-
-
-  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-  <script>
-    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
-    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
-  </script>
-  <script src="https://www.google-analytics.com/analytics.js" async></script>
+    <main>
+      <section class="info">
+        <div class="info__temp">
+          <h1><span id="temp">0</span>ºC</h2>
+        </div>
+      </section>
+      <form class="buscaCidade">
+        <fieldset>
+          <select class="buscaCidade__Estado" id="states" onchange="getCities()"></select>
+          <select class="buscaCidade__Cidade" id="cities"></select>
+          <a href="#" onclick="selectCity()" class="buscaCidade__Buscar">Selecionar</a>
+        </fieldset>
+      </form>
+    </main>
+    <footer class="footer">
+      Desenvolvido por Denis P. de Paula
+    </footer>
+  </div>
 </body>
+
+<script src="js/main.js"></script>
+
 
 </html>
