@@ -103,7 +103,7 @@ function getStates() {
   // 
 
 
-  let url = "https://servicodados.ibge.gov.br/api/v1/localidades/estados";
+  const url = "https://servicodados.ibge.gov.br/api/v1/localidades/estados";
   let states = document.getElementById('states');
   states.length = 0;
   option = document.createElement('option');
