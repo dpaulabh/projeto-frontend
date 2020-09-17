@@ -33,7 +33,7 @@ function fetchApi(url) {
 }
 
 
-function getCities(){
+function getCities(ordena = true){
   let states = document.getElementById('states');  
   let url = "https://servicodados.ibge.gov.br/api/v1/localidades/estados/" + states.value + "/municipios";
   let cities = document.getElementById('cities');
@@ -47,14 +47,15 @@ function getCities(){
   fetch(url)
     .then((data) => {
       data.json().then((data) => {
-        data.sort(function(a,b){
-          //IBGE fornece os dados fora de ordem
-          if(a.nome == b.nome)
-              return 0;
-          if(a.nome < b.nome)
-              return -1;
-          if(a.nome > b.nome)
-              return 1;
+        if (ordena)
+           data.sort(function(a,b){
+             //IBGE fornece os dados fora de ordem
+             if(a.nome == b.nome)
+               return 0;
+             if(a.nome < b.nome)
+               return -1;
+             if(a.nome > b.nome)
+               return 1;
       });
 
         for (let i = 0; i < data.length; i++) {
@@ -72,10 +73,7 @@ function getCities(){
 }
 
 
-
-
-
-function getStates() {
+function getStates(ordena = true) {
 
   // Colocando placeholder no drowpdown de cidades
   let cities = document.getElementById('cities');
@@ -88,7 +86,6 @@ function getStates() {
   cities.selectedIndex = 0;
   // 
 
-
   const url = "https://servicodados.ibge.gov.br/api/v1/localidades/estados";
   let states = document.getElementById('states');
   states.length = 0;
@@ -100,14 +97,15 @@ function getStates() {
   fetch(url)
     .then((data) => {
       data.json().then((data) => {
-        data.sort(function(a,b){
-          //IBGE fornece os dados fora de ordem
-          if(a.nome == b.nome)
-              return 0;
-          if(a.nome < b.nome)
-              return -1;
-          if(a.nome > b.nome)
-              return 1;
+        if (ordena)  
+           data.sort(function(a,b){
+             //IBGE fornece os dados fora de ordem
+             if(a.nome == b.nome)
+               return 0;
+             if(a.nome < b.nome)
+               return -1;
+             if(a.nome > b.nome)
+               return 1;
       });
 
         for (let i = 0; i < data.length; i++) {
