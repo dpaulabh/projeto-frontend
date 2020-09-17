@@ -33,7 +33,7 @@ function fetchApi(url) {
 }
 
 
-function getCities(ordena = true){
+async function getCities(ordena = true){
   let states = document.getElementById('states');  
   let url = "https://servicodados.ibge.gov.br/api/v1/localidades/estados/" + states.value + "/municipios";
   let cities = document.getElementById('cities');
@@ -44,7 +44,7 @@ function getCities(ordena = true){
   option.text = "Cidade";
   cities.add(option);  
   cities.selectedIndex = 0;
-  fetch(url)
+  await fetch(url)
     .then((data) => {
       data.json().then((data) => {
         if (ordena)
@@ -73,7 +73,7 @@ function getCities(ordena = true){
 }
 
 
-function getStates(ordena = true) {
+async function getStates(ordena = true) {
 
   // Colocando placeholder no drowpdown de cidades
   let cities = document.getElementById('cities');
@@ -94,7 +94,7 @@ function getStates(ordena = true) {
   option.text = "Estado";
   states.add(option);  
   states.selectedIndex = 0;
-  fetch(url)
+  await fetch(url)
     .then((data) => {
       data.json().then((data) => {
         if (ordena)  
