@@ -1,3 +1,10 @@
+erros = new Map();
+erros.set("GPS", "Geolocalização não está disponível.");
+erros.set('Cidades', "Erro ao carregar cidades. Verifique a sua conexão.");
+erros.set("Estados", "Erro ao carregar Estados. Verifique a sua conexão.");
+erros.set("API-Clima", "Impossível acessar o serviço de clima. Verifique a sua conexão.");
+
+
 function getUserPosition() {
   let url;
   navigator.geolocation.getCurrentPosition((pos) => {
@@ -20,32 +27,11 @@ function fetchApi(url) {
       temp.innerText = data.name + "    " + tempCelsius;
     })
     .catch((err) => {
-      cidade.innerText = 'Impossível acessar o serviço de clima. Verifique a sua conexão.';
+      cidade.innerText = erros.get("API-Clima");
       temp.innerText = '-';
     })
 }
 
-
-function sortJsonArrayByProperty(objArray, prop, direction){
-  if (arguments.length<2) throw new Error("sortJsonArrayByProp requires 2 arguments");
-  var direct = arguments.length>2 ? arguments[2] : 1; //Default to ascending
-
-  if (objArray && objArray.constructor===Array){
-      var propPath = (prop.constructor===Array) ? prop : prop.split(".");
-      objArray.sort(function(a,b){
-          for (var p in propPath){
-              if (a[propPath[p]] && b[propPath[p]]){
-                  a = a[propPath[p]];
-                  b = b[propPath[p]];
-              }
-          }
-          // convert numeric strings to integers
-          a = a.match(/^\d+$/) ? +a : a;
-          b = b.match(/^\d+$/) ? +b : b;
-          return ( (a < b) ? -1*direct : ((a > b) ? 1*direct : 0) );
-      });
-  }
-}
 
 function getCities(){
   let states = document.getElementById('states');  
@@ -80,7 +66,7 @@ function getCities(){
       });
     })
     .catch((err) => {
-      cidade.innerText =  'Erro ao carregar cidades. Verifique a sua conexão.';
+      cidade.innerText =  erros.get("Cidades");
       temp.innerText = '-';
     })
 }
@@ -133,7 +119,7 @@ function getStates() {
       });
     })
     .catch((err) => {
-      cidade.innerText = 'Erro ao carregar estados. Verifique a sua conexão.';
+      cidade.innerText = erros.get("Estados");
       temp.innerText = '-';
     })
 }
@@ -151,7 +137,7 @@ getStates();
 if (navigator.geolocation) {
   getUserPosition()
 } else {
-  city.innerText = 'Geolocalização não está disponível.';
+  city.innerText = erros.get("GPS");
   temp.innerText = '-';
 }
 
