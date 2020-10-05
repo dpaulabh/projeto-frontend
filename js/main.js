@@ -94,6 +94,8 @@ async function getStates(ordena = true) {
   option.text = "Estado";
   states.add(option);  
   states.selectedIndex = 0;
+  // Incluido para facilitar a navegação via teclado
+  states.focus();
   await fetch(url)
     .then((data) => {
       data.json().then((data) => {
